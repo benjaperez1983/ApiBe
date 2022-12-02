@@ -13,17 +13,7 @@ namespace Server.Controllers
         {
             _symbolService = symbolService;
         }
-
-        [HttpGet]
-        public async Task<ActionResult<Root>> LoadSymbolResultDto(string symbol) 
-        {
-            var result = await _symbolService.GetSymbolHistoricalDataAsync(symbol,7);
-            if (result == null)
-            {
-                return NotFound();
-            }
-            return Ok(result);
-        }
+        
         [HttpGet]
         public async Task<ActionResult<List<Performance>>> LoadPerformanceComparison(string symbol)
         {
